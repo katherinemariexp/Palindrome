@@ -2,13 +2,16 @@
 #include <string>
 using namespace std;
 
-bool isPalindrome(string str)
+
+
+bool recursiveIsPalindrome(string str, int f, int l)
 {
-    if (str.size() <= 1)
+    if (str.length() <= 1)
     {
         return true;
     }
-    else if (str == string(str.rbegin(), str.rend()))
+    
+    if (str[f] == str[l])
     {
         return true;
     }
@@ -16,6 +19,13 @@ bool isPalindrome(string str)
     {
         return false;
     }
+    
+    return recursiveIsPalindrome(str, f + 1, l - 1);
+}
+
+bool isPalindrome(string str)
+{
+    return recursiveIsPalindrome(str, 0, str.length() - 1);
 }
 
 int main()

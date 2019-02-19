@@ -11,7 +11,7 @@ bool recursiveIsPalindrome(string str, int f, int l)
         return true;
     }
     
-    if (str[f] == str[l])
+    if (str.at(f) == str.at(l))
     {
         return true;
     }
